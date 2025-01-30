@@ -1,0 +1,24 @@
+@use '../../utils/variables.scss' as vars;
+header {
+  height: 100px;
+  padding: 20px 60px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  color: vars.$yellow;
+
+  .logo {
+    width: 100px;
+    height: 100px;
+
+    background-image: url(../../assets/2.png);
+    background-size: cover;
+  }
+
+  h1 {
+    font-family: vars.$accent-font;
+    font-size: 36px;
+  }
+}

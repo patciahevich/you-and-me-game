@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+button {
+  width: 80%;
+  height: 60px;
+
+  border: none;
+  cursor: pointer;
+
+  transition: all 0.5s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+button:active {
+  transform: scale(0.9);
+}

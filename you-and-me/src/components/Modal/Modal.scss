@@ -1,0 +1,60 @@
+@use '../../utils/variables.scss' as vars;
+
+.modal-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(white, 0.5);
+
+  .modal {
+    width: 600px;
+    height: 600px;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    background-color: vars.$red;
+    color: white;
+    font-size: 18px;
+
+    border-radius: vars.$radius;
+    box-shadow: vars.$shadow;
+
+    h2 {
+      font-size: 26px;
+    }
+
+    .accent {
+      font-family: vars.$accent-font;
+    }
+
+    button {
+      background-color: white;
+      border-radius: vars.$radius;
+      box-shadow: vars.$shadow;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .modal-wrapper {
+    .modal {
+      width: 80%;
+      height: max-content;
+
+      gap: 30px;
+    }
+  }
+}

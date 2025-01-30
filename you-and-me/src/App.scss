@@ -1,0 +1,11 @@
+@use './utils/variables.scss' as vars;
+
+.app {
+  height: 100%;
+  width: 100%;
+
+  position: relative;
+
+  background-color: vars.$pink;
+  font-family: vars.$main-font;
+}
