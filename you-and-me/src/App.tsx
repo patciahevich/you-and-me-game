@@ -4,6 +4,8 @@ import Header from './components/Header/Header';
 import RuleModal from './components/RuleModal/RuleModal';
 import SettingsModal from './components/SettingsModal/SettingsModal';
 import GameBoard from './components/GameBoard/GameBoard';
+import FinishModal from './components/FinishModal/FinishModal';
+import Footer from './components/Footer/Footer';
 
 type STEPS = 'rules' | 'settings' | 'game' | 'finish';
 export type GameMode = 'default' | 'random';
@@ -41,7 +43,12 @@ function App() {
 
   function handleFinishGame() {
     setStep('finish');
+  }
+
+  function handleResetGame() {
     localStorage.removeItem('questionIndices');
+    localStorage.removeItem('gameMode');
+    setStep('rules');
   }
 
   return (
@@ -56,7 +63,8 @@ function App() {
           indices={questionIndices}
         />
       )}
-      {step === 'finish' && <p>finish</p>}
+      {step === 'finish' && <FinishModal reset={handleResetGame} />}
+      <Footer reset={handleResetGame} />
     </div>
   );
 }
