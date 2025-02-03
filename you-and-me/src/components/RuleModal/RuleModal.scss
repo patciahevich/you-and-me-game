@@ -16,14 +16,14 @@
 
   .modal {
     width: 600px;
-    height: 600px;
+    height: max-content;
 
-    padding: 20px;
+    padding: 50px 20px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    gap: 50px;
 
     background-color: vars.$red;
     color: white;

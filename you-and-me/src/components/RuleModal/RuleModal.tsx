@@ -1,14 +1,10 @@
-import './Modal.scss';
+import './RuleModal.scss';
 
 type ModalProps = {
-  startGame: (value: boolean) => void;
+  setNext: () => void;
 };
 
-function Modal(props: ModalProps) {
-  function handleSubmit() {
-    props.startGame(true);
-    localStorage.setItem('game', 'true');
-  }
+function RuleModal({ setNext }: ModalProps) {
   return (
     <div className="modal-wrapper">
       <div className="modal">
@@ -31,12 +27,12 @@ function Modal(props: ModalProps) {
             интересных разговоров!
           </li>
         </ul>
-        <button type="button" onClick={handleSubmit}>
-          Начать
+        <button type="button" onClick={setNext}>
+          Далее
         </button>
       </div>
     </div>
   );
 }
 
-export default Modal;
+export default RuleModal;

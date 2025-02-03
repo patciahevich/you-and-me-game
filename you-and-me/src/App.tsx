@@ -1,40 +1,62 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
 import Header from './components/Header/Header';
-import Modal from './components/Modal/Modal';
-import Card from './components/Card/Card';
-import questions from './database/questions';
+import RuleModal from './components/RuleModal/RuleModal';
+import SettingsModal from './components/SettingsModal/SettingsModal';
+import GameBoard from './components/GameBoard/GameBoard';
 
-const index = 0;
+type STEPS = 'rules' | 'settings' | 'game' | 'finish';
+export type GameMode = 'default' | 'random';
 
 function App() {
-  const [questionIndex, setIndex] = useState(() => {
-    const savedIndex = localStorage.getItem('gameIndex');
-    return savedIndex ? Number(savedIndex) : index;
-  });
-
-  const [isStart, setIsStart] = useState(Boolean(questionIndex));
+  const [step, setStep] = useState<STEPS>('rules');
+  const [mode, setMode] = useState<GameMode>('default');
+  const [questionIndices, setQuestionIndices] = useState([0]);
 
   useEffect(() => {
-    localStorage.setItem('gameIndex', questionIndex.toString());
-  }, [questionIndex]);
+    const savedMode = localStorage.getItem('gameMode');
+    const savedIndices = localStorage.getItem('questionIndices');
 
-  function increaseIndex() {
-    setIndex((prevIndex) => prevIndex + 1);
+    if (savedMode && savedIndices) {
+      setMode(JSON.parse(savedMode));
+      setQuestionIndices(JSON.parse(savedIndices));
+      setStep('game');
+    } else {
+      setStep('rules');
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('gameMode', JSON.stringify(mode));
+  }, [mode]);
+
+  function handleStart() {
+    setStep('settings');
+  }
+
+  function handleModeSubmit(mode: GameMode) {
+    setMode(mode);
+    setStep('game');
+  }
+
+  function handleFinishGame() {
+    setStep('finish');
+    localStorage.removeItem('questionIndices');
   }
 
   return (
     <div className="app">
       <Header />
-      {!isStart ? (
-        <Modal startGame={setIsStart} />
-      ) : (
-        <Card
-          number={questionIndex + 1}
-          text={questions[questionIndex]}
-          increaseIndex={increaseIndex}
+      {step === 'rules' && <RuleModal setNext={handleStart} />}
+      {step === 'settings' && <SettingsModal start={handleModeSubmit} />}
+      {step === 'game' && (
+        <GameBoard
+          mode={mode}
+          finishGame={handleFinishGame}
+          indices={questionIndices}
         />
       )}
+      {step === 'finish' && <p>finish</p>}
     </div>
   );
 }
