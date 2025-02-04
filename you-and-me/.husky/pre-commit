@@ -1,0 +1,3 @@
+cd you-and-me
+npm run lint:fix
+npm run format && git add .
