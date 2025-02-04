@@ -1,50 +1,55 @@
-# React + TypeScript + Vite
+# 💕 You and Me (Game for lovers)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+"You and Me" — это веб-приложение, которое помогает парам лучше узнать друг друга через увлекательную игру с вопросами. Играйте, обсуждайте и открывайте новые грани ваших отношений! ❤️
 
-Currently, two official plugins are available:
+## 🚀 Функциональность
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🎲 Два режима игры: вопросы по порядку или случайные.
 
-## Expanding the ESLint configuration
+- ❓ 100 вопросов на разные темы: любовь, будущее, ценности, быт и многое другое.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- 📊 Подсчет вопросов: игра продолжается, пока не будут пройдены все вопросы.
 
-- Configure the top-level `parserOptions` property like this:
+- 💾 Сохранение прогресса в локальном хранилище (LocalStorage).
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+- 🎉 Финальный экран с поздравлением и предложением обсудить игру.
+
+## 🛠️ Установка и запуск
+
+1. Клонируйте репозиторий:
+
+```
+  git clone https://github.com/patciahevich/you-and-me-game.git
+  cd you-and-me-game
+
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Установите зависимости:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
+` npm install`
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-});
-```
+3. Запустите приложение:
+
+`npm start dev`
+
+4. Откройте в браузере:
+
+` http://localhost:5173/`
+
+## 🏗️ Технологии
+
+- React (useState, useEffect)
+
+- TypeScript
+
+- SCSS для стилизации
+
+- LocalStorage для сохранения прогресса
+
+## 💡 Идеи для улучшения
+
+- Добавить новые категории вопросов
+
+- Добавить таймер для ответа
+
+- Ввести систему очков или рейтингов
