@@ -60,7 +60,7 @@ function GameBoard({ mode, finishGame, indices }: CardProps) {
   return (
     <section>
       <div className="card">
-        <p className="number">{index !== null ? index + 1 : '—'}</p>
+        <h3>{index !== null ? index + 1 : '—'}</h3>
         <p className="content">
           {index !== null ? questions[index] : 'Игра окончена'}
         </p>

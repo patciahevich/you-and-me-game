@@ -16,22 +16,29 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    gap: 30px;
+    gap: 10px;
 
     background-color: white;
     border-radius: vars.$radius;
     box-shadow: vars.$shadow;
 
-    .number {
+    h3 {
       font-size: 100px;
       color: rgb(207, 201, 201);
+      font-weight: 300;
       font-family: vars.$number-font;
     }
 
     button {
+      margin-bottom: 20px;
       background-color: vars.$red;
       color: white;
       border-radius: vars.$radius;
+    }
+
+    p {
+      padding: 20px;
+      text-align: center;
     }
   }
 }
